@@ -1,0 +1,14 @@
+C:\Users\dldyg\source\repos\250928\textrpg\obj\Debug\net8.0\textrpg.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dldyg\source\repos\250928\textrpg\obj\Debug\net8.0\textrpg.AssemblyInfoInputs.cache
+C:\Users\dldyg\source\repos\250928\textrpg\obj\Debug\net8.0\textrpg.AssemblyInfo.cs
+C:\Users\dldyg\source\repos\250928\textrpg\obj\Debug\net8.0\textrpg.csproj.CoreCompileInputs.cache
+C:\Users\dldyg\source\repos\250928\textrpg\bin\Debug\net8.0\textrpg.exe
+C:\Users\dldyg\source\repos\250928\textrpg\bin\Debug\net8.0\textrpg.deps.json
+C:\Users\dldyg\source\repos\250928\textrpg\bin\Debug\net8.0\textrpg.runtimeconfig.json
+C:\Users\dldyg\source\repos\250928\textrpg\bin\Debug\net8.0\textrpg.dll
+C:\Users\dldyg\source\repos\250928\textrpg\bin\Debug\net8.0\textrpg.pdb
+C:\Users\dldyg\source\repos\250928\textrpg\obj\Debug\net8.0\textrpg.dll
+C:\Users\dldyg\source\repos\250928\textrpg\obj\Debug\net8.0\refint\textrpg.dll
+C:\Users\dldyg\source\repos\250928\textrpg\obj\Debug\net8.0\textrpg.pdb
+C:\Users\dldyg\source\repos\250928\textrpg\obj\Debug\net8.0\textrpg.genruntimeconfig.cache
+C:\Users\dldyg\source\repos\250928\textrpg\obj\Debug\net8.0\ref\textrpg.dll
