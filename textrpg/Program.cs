@@ -18,20 +18,20 @@ class Playview
         Console.WriteLine();
         Console.WriteLine("너의 이름은 뭐야?");
         Status status1 = new Status();
-        status1.Name = Console.ReadLine();
+        status1.Name = Console.ReadLine(); //status클래스에 있는 Name의 값을 내가 입력한 값으로 한다.
 
         Console.WriteLine();
         Console.WriteLine("직업을 선택하세요");
         Console.WriteLine("1.전사:    강한 힘과 체력 방어력을 가지고 있지만 처참한 마법 방어력을 가지고 있습니다.");
         Console.WriteLine("2.마법사:    강한 마법공격력과 마법저항력을 가지고 있지만 처참한 공격력과 방어력을 가지고 있습니다.");
-        Select select1 = new Select();
+        Select select1 = new Select(); 
         select1.JobSelect(status1); //직업선택
         Console.WriteLine();
         
         
-        ItemList itemview1 = new ItemList();
+        ItemList itemview1 = new ItemList(); 
         
-        Item itemlist = new Item();
+        
         ItemDatabase database = new ItemDatabase();
         ItemDatabase.ItemList();
         
@@ -47,60 +47,7 @@ class Playview
 
 
     }
-
-    
-
-    class Item
-    {
-        
-        
-        private string name;
-
-        public string ItemName { get; set; }
-        public int ItemType { get; set; }
-        public int ItemEffect { get; set; }
-
-        public enum type
-        {
-            weaphon = 1,
-            armor = 2,
-            potion = 3
-        }
-
-
-        
-        public enum WeaponName
-        {
-
-            branch = 0,  //나뭇가지
-            ironsword = 1, //철검
-            pick = 2,  //곡괭이
-            gunwithoutholes = 3, //구멍이 없는 총
-            poisonknife = 4,  //독칼
-            knife = 5 //칼
-        }
-        enum Armor
-        {
-            newspaper = 0, //신문지 갑옷
-            Shabbyclothes = 1, //허름한옷
-            clothes = 2, //평범한옷
-            expensiveclothes = 3 //값비싼옷
-
-        }
-        enum Potion
-        {
-            strangepotion = 0, //이상한물약
-            potion = 1,  //물약
-            poisonpotion = 2 //독물약
-        }
-
-       
-
-        
-          
-
-    }
-    public class ItemDatabase
+    public class ItemDatabase 
     {
         public ItemDatabase() { }
         public string itemname;
@@ -115,17 +62,17 @@ class Playview
 
 
 
-        public ItemDatabase(string Name, int Type, int Hp, int Str, int MagicAttack, int Amor, string Information, int Equip, int Possession)
+        public ItemDatabase(string Name, int Type, int Hp, int Str, int MagicAttack, int Amor, string Information, int Equip, int Possession) //생성자 매개변수를 넣어 아이템 스텟관리 함
         {
-            itemname = Name;
-            itemtype = Type;
-            itemhp = Hp;
-            itemstr = Str;
-            itemmagicattack = MagicAttack;
-            itemamor = Amor;
-            iteminformation = Information;
-            itemequip = Equip;
-            possession = Possession;
+            itemname = Name; //이름
+            itemtype = Type; //아이템타입(도감)
+            itemhp = Hp; //체력
+            itemstr = Str; //공격력
+            itemmagicattack = MagicAttack; //마법공격력
+            itemamor = Amor; //방어력
+            iteminformation = Information; //정보
+            itemequip = Equip; //착용여부
+            possession = Possession; //보유여부
         }
         public static List<ItemDatabase> item = new List<ItemDatabase>();
 
@@ -145,7 +92,7 @@ class Playview
         public void MoveSelect(Status status1, ItemList itemview1, Select select1, ItemDatabase data)
         {
 
-            while (true)
+            while (true) //메인메뉴창
             {
                 Console.WriteLine();
                 Console.WriteLine("1. 상태보기");
@@ -154,18 +101,19 @@ class Playview
                 Console.WriteLine();
                 Console.WriteLine("원하시는 행동을 숫자로 입력해주세요.");
                 Console.Write(">> ");
-                string input = Console.ReadLine(); //이름 입력
-                int inputchange = int.Parse(input);
-                if (inputchange == (int)select.status)
+                string input = Console.ReadLine(); //행동입력
+                int inputchange = int.Parse(input); //입력한 숫자를 정수로 변환
+                if (inputchange == (int)select.status)  //입력한 값과 select라는 enum에 status 접근 그걸 인트값으로 바꾸고 비교
                 {
-                    Console.WriteLine("상태보기를 선택하셨습니다.");
-                    if (inputchange == 1)
+                    
+                    if (inputchange == 1) // 1 선택시 상태창 ?? 왜지?? 왜 조건을 하나 더 썻지? (버그없으니 넘어갈게요)
                     {
                         Console.Clear();
-                        status1.StatusView1();
-                        status1.StatusView2(status1);
-                        status1.StatusView3();
-                        status1.statusview4(status1);
+                        Console.WriteLine("상태보기를 선택하셨습니다.");
+                        status1.StatusView1();  //스테이터스 관련 메서드 호출
+                        status1.StatusView2(status1); //
+                        status1.StatusView3(); //
+                        status1.statusview4(status1); //
                         
                         Console.WriteLine("원하는 행동을 입력해주세요.");
                         Console.Write(">>");
@@ -174,7 +122,7 @@ class Playview
                         break;
                     }
                 }
-                else if (inputchange == (int)select.inventory)
+                else if (inputchange == (int)select.inventory) //인벤토리 들어가기 enum의 값을 2로 설정했기 때문에 2입력시 들어가져요
                 {
                     
                     Console.WriteLine("인벤토리를 선택하셨습니다.");
@@ -202,7 +150,7 @@ class Playview
                 }
             }
         }
-        public void EndSelect(Status status1, ItemList itemview1, Select select1,ItemDatabase data)
+        public void EndSelect(Status status1, ItemList itemview1, Select select1,ItemDatabase data) //나가기 메서드
         {
 
             
@@ -210,7 +158,7 @@ class Playview
                 
                 int input = int.Parse(Console.ReadLine());
                 Console.Clear();
-            if (input == 0)
+            if (input == 0) //0번 누르면 나가져요 하지만 이 메서드 때문에 작동 오류가 나서 거의 안씁니다... 작동순서가 망가져서..
             {
 
                 MoveSelect(status1, itemview1, select1, data);
@@ -232,21 +180,21 @@ class Playview
                 string job = Console.ReadLine();
                 int choice = int.Parse(job);
 
-                if (choice == (int)joblist.warrior)
+                if (choice == (int)joblist.warrior) //마찬가지로 enum으로 작성
                 {
                     Console.WriteLine("전사로 전직했습니다.");
                     status1.Job = "warrior";
-                    status1.SetWarriorStats();
+                    status1.SetWarriorStats(); //직업 선택시 직업에 맞는 전사 기본 스테이터스 설정
                     break;
                 }
-                else if (choice == (int)joblist.magician)
+                else if (choice == (int)joblist.magician) 
                 {
                     Console.WriteLine("마법사로 전직했습니다");
                     status1.Job = "magician";
-                    status1.SetmagicianStats();
+                    status1.SetmagicianStats(); //직업 선택시 직업에 맞는 마법사 기본 스테이터스 설정
                     break;
                 }
-                else if (choice == (int)joblist.magicswordsman)
+                else if (choice == (int)joblist.magicswordsman) //히든직업도 만들었습니다.
                 {
                     Console.WriteLine("히든직업 마검사로 전직했습니다");
                     Console.WriteLine();
@@ -273,15 +221,15 @@ class Playview
             {
                 string input3 = Console.ReadLine();
                 int inputchange3 = int.Parse(input3);
-                if (inputchange3 == 1)
+                if (inputchange3 == 1) //1번 누르면 장착관리로 이동합니다. 장착한 아이템 보유 그리고 인벤토리 확인
                 {
-                    InventoryEquip(status1,itemview1,select1,itemlist);
+                    InventoryEquip(status1,itemview1,select1,itemlist); 
                     
                 
                 }
                 
                 
-                else if (inputchange3  == 0)
+                else if (inputchange3  == 0) //0번 누르면 나가집니다. 월래 메서드로 자동화 시킬려고 했는데 버그가 생겨서 분리했습니다.
                 {
 
                     Console.Clear();
@@ -302,14 +250,14 @@ class Playview
         public void InventoryEquip(Status status1, ItemList itemview1, Select select1, ItemDatabase  itemlist)
         {
             int number = 1;
-            foreach (ItemDatabase iteminventory1  in ItemDatabase.item)
+            foreach (ItemDatabase iteminventory1  in ItemDatabase.item) //아이템데이터베이스 속한 아이템이라는 이름의 리스트를 아이템인벤토리1이라는 이름에 넣은다.
             {
-                if (iteminventory1.possession == 1)
+                if (iteminventory1.possession == 1) //인벤토리1안에 속한 possession의 값이 1일 때 possession이 1인 값만 보여줌
                 {
-                    string equipon = iteminventory1.itemname;
-                    if (iteminventory1.itemequip == 1)
+                    string equipon = iteminventory1.itemname; //if문 안과 밖에서 사용하기 위해서 사용
+                    if (iteminventory1.itemequip == 1) 
                     {
-                        equipon = "E" + iteminventory1.itemname;
+                        equipon = "E"; //착용 유무
                     }
                     
                     Console.WriteLine($"{number}.  {equipon} ,{iteminventory1.itemname}, {iteminventory1.itemstr}, {iteminventory1.itemamor}, {iteminventory1.itemhp}, {iteminventory1.itemmagicattack}, {iteminventory1.iteminformation}");
@@ -321,24 +269,27 @@ class Playview
             }
             while(true)
             {
-                int itemnumber = 1;
+                int itemnumber = 1; //
                 string input4 = Console.ReadLine();
-                int inputchange4 = int.Parse(input4);
+                int inputchange4 = int.Parse(input4); 
                 foreach (ItemDatabase itemposse in ItemDatabase.item)
                 {
 
 
-                    if (itemposse.possession == 1)
+                    if (itemposse.possession == 1) //possession의 값이 1이었을 때
                     {
-                        if (itemnumber == inputchange4)
+                        if (itemnumber == inputchange4) //입력한 값이 아이템넘버와 같을 때
+                                                        //의문점!! 입력한 값은 자신이 원하는 값을 입력하겠지만
+                                                        //아이템넘버는 지정하지 않아도 항상 내가 입력한 값과 같은 이유가 무엇일까?
+                                                        //입력한 값이 1 이여도 아이템넘버는 지정하지 않는 이상 무작위 가능성도 있지않나요?
                         {
-                            if (itemposse.itemequip == 1)
+                            if (itemposse.itemequip == 1) //itemquip 값이 1이면
                             {
-                                Console.WriteLine("장착해제");
-                                itemposse.itemequip = 0;
+                                Console.WriteLine("장착해제"); //장착해제 출력
+                                itemposse.itemequip = 0; //값이 0이된다. // 난 이런것도 생각못한 ...
                                 break;
                             }
-                            else if (itemposse.itemequip == 0)
+                            else if (itemposse.itemequip == 0) //0이된다면 
                             {
                                 Console.WriteLine("장착");
                                 itemposse.itemequip = 1;
@@ -347,7 +298,7 @@ class Playview
                            
                             else
                             {
-                                Console.WriteLine("잘못된 입력입니다");
+                                Console.WriteLine("잘못된 입력입니다"); //그외입력시 
                             }
                             Console.WriteLine("0. 나가기");
                             
@@ -357,7 +308,7 @@ class Playview
                     }
                     itemnumber++;
                 }
-                if (inputchange4 == 0)
+                if (inputchange4 == 0) //0 입력시 나가집니다.
                 {
                     Console.Clear();
                     MoveSelect(status1, itemview1, select1, itemlist);
@@ -373,7 +324,7 @@ class Playview
 
     enum joblist //직업종류
     {
-        warrior = 1,
+        warrior = 1, //직업선택을 숫자로 입력할 때 필요
         magician = 2,
         magicswordsman = 626626626
     }
@@ -390,7 +341,7 @@ class Playview
         private int level;
         private string job;
         private int hp;
-        public string Name
+        public string Name 
         {
             get { return name; }
             set { name = value; }
@@ -478,24 +429,23 @@ class Playview
   
     
 
-    class ItemList
+    class ItemList //도감
     {
-        public ItemDatabase item = new ItemDatabase();
+        public ItemDatabase item = new ItemDatabase(); 
         
         public void itemview(Status stats, ItemList itemview, Select select1, ItemDatabase itemlist)
         {
             item = itemlist;
-            //resetview();
-            //Item.ItemDatabase.ItemList();
+           
             string input2 = Console.ReadLine();
             int inputchange2 = int.Parse(input2);
            
             foreach (ItemDatabase itemdata in ItemDatabase.item)  //아이템에 있는 클래스 안에 아이템데이터베이스 클래스 안에 아이템을 아이템데이타 변수에 넣는다
             {
                 
-                if (itemdata.itemtype == inputchange2)
+                if (itemdata.itemtype == inputchange2) //아이템타입이 입력 값과 같으면 타입에 맞는 아이템 출력
                 {
-                    Console.WriteLine($"{itemdata.itemname}: {itemdata.iteminformation}");
+                    Console.WriteLine($"{itemdata.itemname}: {itemdata.iteminformation}"); //이름과 아이템정보 출력
                     
                     
 
